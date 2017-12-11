@@ -13,4 +13,4 @@ set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
-set mouse=a
+set mouse=r             " allows for highlighting text wih mouse
