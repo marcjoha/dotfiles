@@ -145,8 +145,8 @@ ctrl + alt - s : chunkc tiling::desktop --layout monocle
 ctrl + alt - d : chunkc tiling::desktop --layout float
 
 # increase or decrease padding
-shift + alt - e : chunkc tiling::desktop --padding dec
-shift + alt - r : chunkc tiling::desktop --padding inc
+shift + alt - r : chunkc tiling::desktop --padding dec
+shift + alt - e : chunkc tiling::desktop --padding inc
 
 ctrl + cmd - r : launchctl stop homebrew.mxcl.chunkwm \
               && launchctl stop homebrew.mxcl.skhd
