@@ -31,7 +31,7 @@ chunkc set global_desktop_offset_gap     0
 chunkc set desktop_padding_step_size     10.0
 chunkc set desktop_gap_step_size         5.0
 
-chunkc set bsp_spawn_left                1
+chunkc set bsp_spawn_left                0
 chunkc set bsp_optimal_ratio             1.618
 chunkc set bsp_split_mode                optimal
 chunkc set bsp_split_ratio               0.5
@@ -43,6 +43,7 @@ chunkc set mouse_follows_focus           0
 chunkc set window_float_next             0
 chunkc set window_float_center           1
 chunkc set window_region_locked          1
+
 
 #
 # NOTE: shell commands require escaped quotes
@@ -79,7 +80,7 @@ chunkc set focused_border_skip_floating  1
 #       if chunkc plugin_dir is not set, the absolutepath is necessary.
 #
 
-chunkc core::load border.so
+#chunkc core::load border.so
 chunkc core::load tiling.so
 chunkc core::load ffm.so
 
