@@ -35,6 +35,7 @@
 
 # open iterm
 cmd - return : open -na /Applications/Hyper.app
+cmd - 0x4C : open -na /Applications/Hyper.app
 
 # close focused window
 alt - w : chunkc tiling::window --close
