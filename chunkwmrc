@@ -5,7 +5,7 @@
 #       loading a plugin. '~' expansion is supported.
 #
 
-chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins
+chunkc core::plugin_dir /Users/majohansson/homebrew/opt/chunkwm/share/chunkwm/plugins/
 
 #
 # NOTE: if enabled, chunkwm will monitor the specified plugin_dir
@@ -91,3 +91,4 @@ chunkc tiling::rule --owner Finder --state float
 chunkc tiling::rule --owner Spotify --state float
 chunkc tiling::rule --owner MacPass --state float
 chunkc tiling::rule --owner "Soda Player" --state float
+chunkc tiling::rule --owner "Signal" --state float
