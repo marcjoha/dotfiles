@@ -63,7 +63,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    padding: '8px 10px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -124,14 +124,14 @@ module.exports = {
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
-    // for advanced config flags please refer to https://hyper.is/#cfg
+    workingDirectory: "/users/majohansson/Drive/_scratch",
 
-    hyperStatusLine: {
-      footerTransparent: false,
-    },
-
-    workingDirectory: '/Users/majohansson/Drive/_scratch'
-
+    // for advanced config flags please refer to https://hyper.is/#cfg    
+    hyperGcpStatusLine: {
+      gcloudBinary: '/Users/majohansson/google-cloud-sdk/bin/gcloud',
+      kubectlBinary: '/Users/majohansson/google-cloud-sdk/bin/kubectl'
+    }
+    
   },
 
   // a list of plugins to fetch and install from npm
@@ -140,7 +140,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyper-solarized-light', 'hyper-statusline', 'hypercwd', 'hyperterm-working-directory'],
+  plugins: ['hyper-solarized', 'hyper-gcp-status-line', 'hyperterm-working-directory', 'hyper-quit'],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
