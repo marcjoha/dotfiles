@@ -48,7 +48,7 @@ module.exports = {
     borderColor: '#333',
 
     // custom CSS to embed in the main window
-    css: '',
+    css: '.tabs_title { display: none !important; }',
 
     // custom CSS to embed in the terminal window
     termCSS: '',
@@ -126,12 +126,12 @@ module.exports = {
 
     workingDirectory: "/users/majohansson/Drive/_scratch",
 
-    // for advanced config flags please refer to https://hyper.is/#cfg    
+    // for advanced config flags please refer to https://hyper.is/#cfg
     hyperGcpStatusLine: {
       gcloudBinary: '/Users/majohansson/google-cloud-sdk/bin/gcloud',
       kubectlBinary: '/Users/majohansson/google-cloud-sdk/bin/kubectl'
     }
-    
+
   },
 
   // a list of plugins to fetch and install from npm
@@ -140,12 +140,12 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyper-solarized', 'hyper-gcp-status-line', 'hyperterm-working-directory', 'hyper-quit'],
+  plugins: ['hyper-solarized', 'hyperterm-working-directory', 'hyper-quit'],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: [],
+  localPlugins: ['hyper-gcp-status-line'],
 
   keymaps: {
     // Example
