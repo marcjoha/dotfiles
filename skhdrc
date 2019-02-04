@@ -134,6 +134,10 @@ alt - e : chunkc tiling::window --toggle split
 alt - t : chunkc tiling::window --toggle float;\
           chunkc tiling::window --grid-layout 4:4:1:1:2:2
 
+# reading mode
+alt - p : chunkc tiling::window --toggle float;\
+          chunkc tiling::window --grid-layout 6:6:2:1:2:4
+
 # toggle sticky, float and resize to picture-in-picture size
 alt - s : chunkc tiling::window --toggle sticky;\
           chunkc tiling::window --grid-layout 5:5:4:0:1:1
