@@ -1,5 +1,5 @@
 syntax enable
-set background=dark
+set background=light
 let g:solarized_termtrans = 1 " This gets rid of the grey background
 colorscheme solarized
 set tabstop=4           " number of visual spaces per TAB
