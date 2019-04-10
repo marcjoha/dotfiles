@@ -1,7 +1,7 @@
 #!/bin/bash
 
+chunkc core::log_file stdout
 chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins/
-chunkc core::hotload 1
 chunkc core::load tiling.so
 
 chunkc set global_desktop_mode           bsp
@@ -28,17 +28,6 @@ chunkc set window_float_next             0
 chunkc set window_float_center           1
 chunkc set window_float_topmost          1
 chunkc set window_region_locked          1
-
-
-chunkc set preselect_border_color        0xffd75f5f
-chunkc set preselect_border_width        12
-chunkc set preselect_border_radius       0
-
-
-chunkc set focused_border_color          0xff0f6288
-chunkc set focused_border_width          8
-chunkc set focused_border_radius         0
-chunkc set focused_border_skip_floating  1
 
 chunkc tiling::rule --owner Finder --state float
 chunkc tiling::rule --owner Spotify --state float

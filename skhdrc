@@ -36,7 +36,7 @@ shift + cmd - 0x4C : open -na /Applications/Kitty.app
 
 # open iterm
 #shift + cmd - return : open -na /Applications/Hyper.app
-shift + cmd - 0x4C : open -na /Applications/Hyper.app
+#shift + cmd - 0x4C : open -na /Applications/Hyper.app
 
 # close focused window
 alt - w : chunkc tiling::window --close
