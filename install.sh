@@ -1,7 +1,9 @@
 #!/bin/bash
-ln -sf chunkwmrc ~/.chunkwmrc
-ln -sf hyper.js  ~/.hyper.js
-ln -sf kitty.conf ~/.config/kitty/kitty.conf
-ln -sf skhdrc  ~/.skhdrc
-ln -sf vimrc  ~/.vimrc
+CWD=`pwd`
+ln -sf $CWD/chunkwmrc ~/.chunkwmrc
+ln -sf $CWD/hyper.js  ~/.hyper.js
+mkdir -p ~/.config/kitty/
+ln -sf $CWD/kitty.conf ~/.config/kitty/kitty.conf
+ln -sf $CWD/skhdrc  ~/.skhdrc
+ln -sf $CWD/vimrc  ~/.vimrc
 
