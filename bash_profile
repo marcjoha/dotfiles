@@ -1,5 +1,4 @@
 export LANG=sv_SE.UTF-8 LC_ALL=sv_SE.UTF-8
-cd /Users/majohansson/Documents
 
 if [ `which brew` ]; then 
   unset PROMPT_COMMAND
@@ -16,3 +15,6 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 source <(kubectl completion bash)
+
+export PATH="$PATH:$HOME/docs/dev/flutter/bin"
+
