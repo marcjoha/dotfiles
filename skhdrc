@@ -4,7 +4,7 @@ shift + cmd - 0x4C : /Applications/Kitty.app/Contents/MacOS/kitty -d ~/docs/
 shift + cmd - 0x21 : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default"
 shift + cmd - 0x27 : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"
 shift + cmd - 0x29 : /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
-shift + cmd - p : /Applications/Spotify.app/Contents/MacOS/Spotify
+shift + cmd - l : /Applications/Spotify.app/Contents/MacOS/Spotify
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -119,13 +119,19 @@ shift + alt - b : yabai -m window --toggle border
 # toggle window split type
 alt - e : yabai -m window --toggle split
 
+# toggle reading mode
+#alt -t : if ((`yabai -m config top_padding` > 0)); then yabai -m config top_padding 0; else yabai -m config top_padding 250; fi;\
+#         if ((`yabai -m config bottom_padding` > 0)); then yabai -m config bottom_padding 0; else yabai -m config bottom_padding 250; fi;\
+#         if ((`yabai -m config left_padding` > 0)); then yabai -m config left_padding 0; else yabai -m config left_padding 250; fi;\
+#         if ((`yabai -m config right_padding` > 0)); then yabai -m config right_padding 0; else yabai -m config right_padding 250; fi
+
 # float / unfloat window and center on screen
 alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
 # float / unfloat window and center on screen (reading mode)
-shift + alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 16:9:2:1:5:14
+#shift + alt - g : yabai -m window --toggle float;\
+#          yabai -m window --grid 16:9:2:1:5:14
 
 # toggle sticky
 alt - s : yabai -m window --toggle sticky
