@@ -16,5 +16,6 @@ export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 source <(kubectl completion bash)
 
-export PATH="$PATH:$HOME/docs/dev/flutter/bin"
+export PATH="$PATH:$(brew --prefix openssl)/bin:$HOME/docs/dev/flutter/bin"
 
+export PATH="/usr/local/opt/openssl/bin:$PATH"
