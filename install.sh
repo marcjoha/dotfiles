@@ -1,6 +1,6 @@
 #!/bin/bash
 CWD=`pwd`
-ln -sf $CWD/bash_profile ~/.bash_profile
+ln -sf $CWD/zshrc ~/.zshrc
 ln -sf $CWD/chunkwmrc ~/.chunkwmrc
 ln -sf $CWD/yabairc ~/.yabairc
 ln -sf $CWD/hyper.js  ~/.hyper.js

@@ -37,16 +37,16 @@ shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 shift + alt - right  : yabai -m window --grid 1:2:1:0:1:1
 
 # fast focus desktop
-ctrl - 1 : yabai -m space --focus 1
-ctrl - 2 : yabai -m space --focus 2
-ctrl - 3 : yabai -m space --focus 3
-ctrl - 4 : yabai -m space --focus 4
-ctrl - 5 : yabai -m space --focus 5
-ctrl - 6 : yabai -m space --focus 6
-ctrl - 7 : yabai -m space --focus 7
-ctrl - 8 : yabai -m space --focus 8
-ctrl - 9 : yabai -m space --focus 9
-ctrl - 0 : yabai -m space --focus 10
+#ctrl - 1 : yabai -m space --focus 1
+#ctrl - 2 : yabai -m space --focus 2
+#ctrl - 3 : yabai -m space --focus 3
+#ctrl - 4 : yabai -m space --focus 4
+#ctrl - 5 : yabai -m space --focus 5
+#ctrl - 6 : yabai -m space --focus 6
+#ctrl - 7 : yabai -m space --focus 7
+#ctrl - 8 : yabai -m space --focus 8
+#ctrl - 9 : yabai -m space --focus 9
+#ctrl - 0 : yabai -m space --focus 10
 
 # send window to desktop and follow focus
 shift + ctrl - 1 : yabai -m window --space  1; yabai -m space --focus 1
@@ -119,37 +119,25 @@ shift + alt - b : yabai -m window --toggle border
 # toggle window split type
 alt - e : yabai -m window --toggle split
 
-# toggle sticky
-alt - s : yabai -m window --toggle sticky
-
-# toggle sticky, float / unfloat window and center on screen
+# float / unfloat window and center on screen
 alt - t : yabai -m window --toggle float;\
-          yabai -m window --toggle sticky;\
+          yabai -m window --toggle topmost;\
           yabai -m window --grid 4:4:1:1:2:2
 
-# toggle sticky, float / unfloat window and center on screen (reading mode)
-shift + alt - t : yabai -m window --toggle float;\
-          yabai -m window --toggle sticky;\
-          yabai -m window --grid 16:9:2:1:5:14
+# toggle sticky (show on all spaces)
+alt - s : yabai -m window --toggle sticky
 
+# toggle topmost (keep above other windows)
+alt - o : yabai -m window --toggle topmost
 
-# toggle sticky, float and resize to picture-in-picture size
+# toggle sticky, topmost and resize to picture-in-picture size
 alt - p : yabai -m window --toggle sticky;\
+          yabai -m window --toggle topmost;\
           yabai -m window --grid 8:8:5:0:3:3
 
-# change layout of desktop
-ctrl + alt - a : yabai -m space --layout bsp
-ctrl + alt - d : yabai -m space --layout float
 
 # restart yabai and skhd
 ctrl + cmd - r : launchctl stop homebrew.mxcl.yabai \
               && launchctl stop homebrew.mxcl.skhd
 
-#chunkc tiling::rule --owner Finder --state float
-#chunkc tiling::rule --owner Spotify --state float
-#chunkc tiling::rule --owner MacPass --state float
-#chunkc tiling::rule --owner \"Soda Player\" --state float
-#chunkc tiling::rule --owner Signal --state float
-#chunkc tiling::rule --owner Tweetbot --state float
-#chunkc tiling::rule --owner \"Google Play Music Desktop Player\" --state float
 
