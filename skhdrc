@@ -1,6 +1,6 @@
 # app shortcuts
-shift + cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty -d ~/docs/_scratch
-shift + cmd - 0x4C : /Applications/Kitty.app/Contents/MacOS/kitty -d ~/docs/_scratch
+shift + cmd - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
+shift + cmd - 0x4C : /Applications/iTerm.app/Contents/MacOS/iTerm2
 shift + cmd - 0x21 : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default"
 shift + cmd - 0x27 : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"
 shift + cmd - 0x29 : /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
