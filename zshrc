@@ -7,6 +7,8 @@ fi
 
 DEFAULT_USER=$(whoami)
 ZLE_RPROMPT_INDENT=-1
+unsetopt prompt_cr prompt_sp
+unsetopt PROMPT_SP
 
 # If you come from bash you might have to change your $PATH.
 export PATH="$PATH:$(brew --prefix openssl)/bin:$HOME/docs/dev/flutter/bin"
