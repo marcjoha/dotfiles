@@ -17,6 +17,9 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/majohansson/.oh-my-zsh"
 
+# krew path
+export PATH="${PATH}:${HOME}/.krew/bin"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -121,3 +124,4 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
