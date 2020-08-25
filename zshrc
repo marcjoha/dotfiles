@@ -122,6 +122,8 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/majohansson/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/majohansson/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/majohansson/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/majohansson/google-cloud-sdk/completion.zsh.inc'; fi
