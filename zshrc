@@ -127,3 +127,8 @@ if [ -f '/Users/majohansson/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/maj
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/majohansson/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/majohansson/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
