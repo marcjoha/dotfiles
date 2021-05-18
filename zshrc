@@ -13,6 +13,7 @@ unsetopt PROMPT_SP
 # If you come from bash you might have to change your $PATH.
 export PATH="$PATH:$(brew --prefix openssl)/bin:$HOME/docs/dev/flutter/bin"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/Users/majohansson/docs/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/majohansson/.oh-my-zsh"
