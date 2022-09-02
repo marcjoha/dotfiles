@@ -1,3 +1,4 @@
+export PATH="${PATH}:/Users/majohansson/Scratch/bin"
 export PATH="${PATH}:/opt/homebrew/bin"
 
 # Fix git prompt
