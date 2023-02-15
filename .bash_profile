@@ -1,6 +1,6 @@
 export PATH="${PATH}:/Users/majohansson/Scratch/bin"
 export PATH="${PATH}:/Users/majohansson/Scratch/bin/flutter/bin"
-export PATH="${PATH}:/opt/homebrew/bin"
+export PATH="${PATH}:/opt/homebrew/bin:/opt/homebrew/sbin"
 
 # Fix git prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
