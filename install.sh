@@ -7,13 +7,13 @@ set -euo pipefail
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BACKUP_DIR="${HOME}/.dotfiles_backup/$(date +%Y%m%d_%H%M%S)"
 
-# The list of dotfiles to link
+# The list of configuration files in the repo (no dot prefix)
 FILES=(
-  ".bash_profile"
-  ".bashrc"
-  ".tmux.conf"
-  ".vimrc"
-  ".gitconfig"
+  "bash_profile"
+  "bashrc"
+  "tmux.conf"
+  "vimrc"
+  "gitconfig"
 )
 
 echo "=== Initializing Dotfiles Installation ==="
@@ -42,7 +42,7 @@ create_symlink() {
 }
 
 for file in "${FILES[@]}"; do
-  create_symlink "${DOTFILES_DIR}/${file}" "${HOME}/${file}"
+  create_symlink "${DOTFILES_DIR}/${file}" "${HOME}/.${file}"
 done
 
 echo "=== Dotfiles Installation Complete! ==="
