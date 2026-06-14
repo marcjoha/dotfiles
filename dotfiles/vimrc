@@ -53,6 +53,22 @@ if !exists('g:colors_name') || g:colors_name != 'solarized8'
   silent! colorscheme solarized
 endif
 
+" --- Custom UI Polish: Bring back the iconic, distinct shade for the line number column ---
+" (This adds a gorgeous, structured code margin even when transparency is enabled)
+if &background == 'dark'
+  if g:solarized_termtrans == 1
+    highlight LineNr       guibg=#002831 guifg=#586e75
+    highlight SignColumn   guibg=#002831
+    highlight FoldColumn   guibg=#002831 guifg=#586e75
+    highlight CursorLineNr guibg=#002831 guifg=#93a1a1 gui=bold
+  else
+    highlight LineNr       guibg=#073642 guifg=#586e75
+    highlight SignColumn   guibg=#073642
+    highlight FoldColumn   guibg=#073642 guifg=#586e75
+    highlight CursorLineNr guibg=#073642 guifg=#93a1a1 gui=bold
+  endif
+endif
+
 " Tab and indentation settings
 set tabstop=2             " number of visual spaces per TAB
 set softtabstop=2         " number of spaces in tab when editing
