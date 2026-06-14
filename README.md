@@ -10,9 +10,11 @@ The root directory contains only the installation tooling and documentation to k
 .
 ├── dotfiles/          # Directory containing active config files (no dot prefixes)
 │   ├── bash_profile   # Shell login profile
+│   ├── config/        # Custom application configurations
+│   │   └── ghostty/config # Ghostty terminal configurations
 │   ├── tmux.conf      # tmux terminal multiplexer config
 │   ├── vim/           # Vim configuration directory
-│   │   └── colors/solarized.vim
+│   │   └── colors/solarized8.vim
 │   └── vimrc          # Vim text editor preferences
 ├── install.sh         # Safe installation and deployment script
 ├── .gitignore         # File patterns to exclude from Git
@@ -23,9 +25,8 @@ The root directory contains only the installation tooling and documentation to k
 
 ## 💻 Included Configurations
 
-| File in Repo | Target Destination | Purpose |
-| :--- | :--- | :--- |
 | `dotfiles/bash_profile` | `~/.bash_profile` | Configures Homebrew, Google Cloud SDK, customized paths, and loads `.bashrc`. |
+| `dotfiles/config/ghostty/config` | `~/.config/ghostty/config` | High-fidelity Ghostty terminal styling and preferences. |
 | `dotfiles/tmux.conf` | `~/.tmux.conf` | Basic multiplexer behaviors like mouse mode. |
 | `dotfiles/vim/` | `~/.vim/` | Vim configuration directory containing the Solarized theme. |
 | `dotfiles/vimrc` | `~/.vimrc` | Standard Vim preferences (dark Solarized style, 2-space tabs, numbering, backup disabling, and backspace fixes). |

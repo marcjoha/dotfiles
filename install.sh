@@ -41,13 +41,23 @@ for src in "${DOTFILES_DIR}"/*; do
   # Skip if the item doesn't exist
   [ -e "$src" ] || continue
 
-  # Get the basename (e.g. "bash_profile" or "vim")
+  # Get the basename (e.g. "bash_profile", "config", "vim")
   file="$(basename "$src")"
 
-  # Prepend dot to construct the target destination in home directory (e.g. "~/.bash_profile")
-  dest="${HOME}/.${file}"
-
-  create_symlink "$src" "$dest"
+  if [ "$file" = "config" ]; then
+    # Special safety handling for the .config directory to prevent wiping out other untracked configs
+    echo "📂 Processing config/ subdirectory..."
+    mkdir -p "${HOME}/.config"
+    for sub_src in "${src}"/*; do
+      [ -e "$sub_src" ] || continue
+      sub_file="$(basename "$sub_src")"
+      create_symlink "$sub_src" "${HOME}/.config/${sub_file}"
+    done
+  else
+    # Standard dotfile/dotfolder symlinking
+    dest="${HOME}/.${file}"
+    create_symlink "$src" "$dest"
+  fi
 done
 
 echo "=== Dotfiles Installation Complete! ==="
