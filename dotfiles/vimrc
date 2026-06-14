@@ -87,8 +87,10 @@ set incsearch             " search as characters are entered
 set nohlsearch            " don't highlight matches
 
 " Interface and editor behavior
-set mouse=a               " allows for highlighting text with mouse
-set clipboard=unnamedplus " copy Vim's yank-stuff into system clipboard
+set mouse=a                   " Allows highlighting text, scrolling, and clicking with mouse
+" Use both unnamed (*) and unnamedplus (+) registers for flawless macOS system clipboard integration.
+" This ensures any yank or delete operation in Vim goes straight to your Mac's system clipboard.
+set clipboard=unnamed,unnamedplus
 
 " Fix backspace keys so it behaves intuitively in insert mode
 set backspace=indent,eol,start
