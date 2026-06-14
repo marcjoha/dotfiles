@@ -1,6 +1,11 @@
 syntax enable
 set background=dark
 
+" Enable 24-bit TrueColor support for modern terminal emulators (like Ghostty)
+if has('termguicolors')
+  set termguicolors
+endif
+
 " Safely load solarized theme (requires ~/.vim/colors/solarized.vim, which is tracked in this repo)
 let g:solarized_termtrans = 1 " This gets rid of the grey background
 colorscheme solarized
