@@ -1,4 +1,0 @@
-# requires sleepwatcher (install through brew)
-# and: chmod a+x ~/.sleep
-
-/Users/majohansson/Scratch/bin/elgato.exe off
