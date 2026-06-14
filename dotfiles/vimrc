@@ -92,6 +92,19 @@ set mouse=a                   " Allows highlighting text, scrolling, and clickin
 " This ensures any yank or delete operation in Vim goes straight to your Mac's system clipboard.
 set clipboard=unnamed,unnamedplus
 
+" --- Easy Clipboard Key Mappings (Ctrl+C / Ctrl+V) ---
+" Copy with Ctrl+C in Visual mode (copies straight to macOS system clipboard and exits selection)
+vnoremap <C-c> "+y
+
+" Paste with Ctrl+V in Normal mode
+nnoremap <C-v> "+p
+
+" Paste with Ctrl+V in Insert mode literally (prevents indentation ladder mess)
+inoremap <C-v> <C-r><C-o>+
+
+" Since Ctrl+V is now Paste, use Ctrl+Q to enter Visual Block selection mode
+nnoremap <C-q> <C-v>
+
 " Fix backspace keys so it behaves intuitively in insert mode
 set backspace=indent,eol,start
 
