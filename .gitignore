@@ -1,0 +1,21 @@
+# OS-specific
+.DS_Store
+.Trash
+
+# Caches
+.cache/
+.npm/
+.yarn/
+*.log
+*.history
+.viminfo
+.node_repl_history
+
+# Sensitive files / keys (failsafes)
+.ssh/
+.netrc
+.kube/
+.mcp-auth
+.secureConnect
+.gemini/
+.antigravity/

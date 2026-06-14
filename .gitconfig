@@ -1,0 +1,5 @@
+[user]
+	name = Marcus Johansson
+	email = majohansson@gmail.com
+[credential]
+	helper = osxkeychain
