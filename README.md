@@ -1,51 +1,42 @@
-# 🛠️ Dotfiles
+# dotfiles
 
-Welcome to your modern, modular, and safe dotfiles repository. This repository manages system configuration files cleanly from a single location.
+A clean, modular, and safe dotfiles repository. It manages system configurations from a single location using dynamic symlinking and post-install hooks.
 
-## 🚀 Repository Structure
+---
 
-The root directory contains only the installation tooling and documentation to keep things pristine:
+## Architecture
 
-```
+The repository isolates clean configurations from installation tooling and hooks:
+
+```text
 .
-├── dotfiles/          # Directory containing active config files (no dot prefixes)
+├── dotfiles/          # System-relative dotfiles (unprefixed)
+│   ├── antigravitycli/# Custom scripts for Antigravity statusbar/title
 │   ├── bash_profile   # Shell login profile
-│   ├── config/        # Custom application configurations
-│   │   └── ghostty/config # Ghostty terminal configurations
+│   ├── config/        # Application configurations (e.g. ghostty)
 │   ├── tmux.conf      # tmux terminal multiplexer config
-│   ├── vim/           # Vim configuration directory
-│   │   └── colors/solarized8.vim
-│   └── vimrc          # Vim text editor preferences
-├── install.sh         # Safe installation and deployment script
-├── .gitignore         # File patterns to exclude from Git
-└── README.md          # This documentation
+│   └── vimrc          # Vim text editor preferences (with .vim directory)
+├── hooks/             # Post-install hook scripts (e.g. antigravitycli.sh)
+├── install.sh         # Dynamic, backup-safe symlinking script
+└── README.md          # Documentation
 ```
 
 ---
 
-## 💻 Included Configurations
+## Design Principles
 
-| `dotfiles/bash_profile` | `~/.bash_profile` | Configures Homebrew, Google Cloud SDK, customized paths, and loads `.bashrc`. |
-| `dotfiles/config/ghostty/config` | `~/.config/ghostty/config` | High-fidelity Ghostty terminal styling and preferences. |
-| `dotfiles/tmux.conf` | `~/.tmux.conf` | Basic multiplexer behaviors like mouse mode. |
-| `dotfiles/vim/` | `~/.vim/` | Vim configuration directory containing the Solarized theme. |
-| `dotfiles/vimrc` | `~/.vimrc` | Standard Vim preferences (dark Solarized style, 2-space tabs, numbering, backup disabling, and backspace fixes). |
+* **Zero-Dot Repository Layout**: Files inside the `dotfiles/` directory do not have leading dots. They are mapped dynamically to hidden files (e.g., `dotfiles/vimrc` becomes `~/.vimrc`) on installation.
+* **Extensible Hooks**: Application-specific configurations (like merging preferences or generating files) are decoupled into the `hooks/` folder to keep the core installer completely generic.
+* **Backup First**: Any pre-existing file or directory in `~` is automatically archived to `~/.dotfiles_backup/<timestamp>/` before creating links.
 
 ---
 
-## ⚡ Deployment & Installation
+## Installation
 
-We use a safe install script that establishes symlinks from this repository back to your home directory (`~`).
+To deploy the configurations:
 
-### How to Run:
+```bash
+./install.sh
+```
 
-1. Open your terminal in this repository.
-2. Run the installation script:
-   ```bash
-   ./install.sh
-   ```
-
-### 🛡️ Safety & Backups:
-If the installer encounters existing files or links that don't point here, **it will not overwrite them**. Instead, it automatically creates a secure backup folder:
-`~/.dotfiles_backup/<timestamp>/`
-Your original configuration is preserved there so nothing is ever lost.
+This will dynamically link all active profiles, initialize directories, and sequentially execute all scripts found in the `hooks/` folder.
