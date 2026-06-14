@@ -3,11 +3,12 @@
 
 set -euo pipefail
 
-# Directory of this script
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Directories
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DOTFILES_DIR="${SCRIPT_DIR}/dotfiles"
 BACKUP_DIR="${HOME}/.dotfiles_backup/$(date +%Y%m%d_%H%M%S)"
 
-# The list of configuration files in the repo (no dot prefix)
+# The list of configuration files inside the dotfiles/ subfolder
 FILES=(
   "bash_profile"
   "bashrc"
