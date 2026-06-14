@@ -11,7 +11,6 @@ The root directory contains only the installation tooling and documentation to k
 ├── dotfiles/          # Directory containing active config files (no dot prefixes)
 │   ├── bash_profile   # Shell login profile
 │   ├── bashrc         # Interactive shell settings & paths
-│   ├── gitconfig      # Global Git settings
 │   ├── tmux.conf      # tmux terminal multiplexer config
 │   └── vimrc          # Vim text editor preferences
 ├── install.sh         # Safe installation and deployment script
@@ -27,7 +26,6 @@ The root directory contains only the installation tooling and documentation to k
 | :--- | :--- | :--- |
 | `dotfiles/bash_profile` | `~/.bash_profile` | Configures Homebrew, Google Cloud SDK, customized paths, and loads `.bashrc`. |
 | `dotfiles/bashrc` | `~/.bashrc` | Sets up non-login interactive shell configurations. |
-| `dotfiles/gitconfig` | `~/.gitconfig` | Configures Git name, email, credentials, and helpful preferences. |
 | `dotfiles/tmux.conf` | `~/.tmux.conf` | Basic multiplexer behaviors like mouse mode. |
 | `dotfiles/vimrc` | `~/.vimrc` | Standard Vim preferences (dark Solarized style, 2-space tabs, numbering). |
 

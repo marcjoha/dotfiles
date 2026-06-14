@@ -14,7 +14,6 @@ FILES=(
   "bashrc"
   "tmux.conf"
   "vimrc"
-  "gitconfig"
 )
 
 echo "=== Initializing Dotfiles Installation ==="
