@@ -3,7 +3,7 @@ set background=dark
 
 " Safely load solarized theme (requires ~/.vim/colors/solarized.vim, which is tracked in this repo)
 let g:solarized_termtrans = 1 " This gets rid of the grey background
-silent! colorscheme solarized
+colorscheme solarized
 
 " Tab and indentation settings
 set tabstop=2             " number of visual spaces per TAB
