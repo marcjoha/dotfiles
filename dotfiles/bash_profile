@@ -16,10 +16,14 @@ fi
 export PATH="${HOME}/bin:${PATH}"
 export PATH="${HOME}/.antigravity/antigravity/bin:${PATH}"
 
-# 4. Git Prompt (requires bash-git-prompt installed via Homebrew)
+# 4. Git Prompt (requires bash-git-prompt installed via Homebrew, with premium Solarized fallback)
 if which brew &>/dev/null && [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR="$(brew --prefix)/opt/bash-git-prompt/share"
   source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+else
+  # Premium Solarized fallback prompt: [user@macbook:directory] $
+  # Cyan (\033[1;36m) for username, Green (\033[1;32m) for host, Blue (\033[1;34m) for working directory
+  export PS1="\[\033[1;36m\]\u\[\033[0m\]@\[\033[1;32m\]\h\[\033[0m\]:\[\033[1;34m\]\w\[\033[0m\] \$ "
 fi
 
 # 5. Google Cloud SDK configurations
@@ -31,8 +35,25 @@ if [ -f "${HOME}/bin/google-cloud-sdk/completion.bash.inc" ]; then
 fi
 
 # 6. Aliases & General Settings
-alias g="gemini"
+# Safe interactive defaults (prevents catastrophic accidental file overwrites)
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
 
-# Start in Scratch folder (creates it if missing)
-mkdir -p "${HOME}/Scratch"
-cd "${HOME}/Scratch"
+# Colorized outputs for standard macOS terminal commands
+alias ls="ls -G"                      # Colored directory layouts on macOS
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+
+# Short-hand navigation and list formats
+alias ll="ls -lhG"                    # Detailed list with human-readable sizes and colors
+alias la="ls -lahG"                   # Detailed list including hidden files
+alias g="gemini"                      # AI helper shortcut
+
+# 7. Auto-Directory Switch
+# Only switch to Scratch directory on primary interactive parent login shells
+# (Prevents breaking tmux split-panes, SSH sessions, or background automation)
+if [[ -z "${TMUX-}" && $- == *i* ]]; then
+  mkdir -p "${HOME}/Scratch"
+  cd "${HOME}/Scratch"
+fi
