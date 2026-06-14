@@ -1,23 +1,55 @@
-syntax enable
-set background=dark
+" ==============================================================================
+" SOLARIZED COLOR SYSTEM CONFIGURATION
+" ==============================================================================
+"
+" We support two ways of rendering Solarized in Ghostty:
+"
+"   METHOD 1 (Default): True 24-Bit Color (TrueColor)
+"   - Uses standard Solarized hex codes (#002b36 base) independent of terminal.
+"   - Requires 'termguicolors' to be supported and set.
+"
+"   METHOD 2: Terminal-Native (16-Color Mode)
+"   - Uses Ghostty's custom 'Solarized Dark Higher Contrast' palette (0-15) and
+"     background (#001e27).
+"   - Guarantees 100% color matching and native rendering (excellent inside tmux).
+"   - To use, uncomment 'let g:solarized_use16 = 1' and comment out 'set termguicolors'.
+"
+" ==============================================================================
 
-" Enable 24-bit TrueColor support for modern terminals (like Ghostty)
-if has('termguicolors')
-  " Manually set the 24-bit RGB escape sequences for standard terminal Vim to work inside modern terminals
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+" --- Theme Customization Variables ---
+" Background transparency: 1 = Transparent (uses Ghostty's background), 0 = Solid (classic Solarized #002b36 background)
+let g:solarized_termtrans = 1
+
+" Contrast/visibility level: 'normal', 'high', or 'low'
+let g:solarized_visibility = 'high'
+
+" Uncomment below to force Vim to use Ghostty's custom 16-color palette (Method 2)
+" let g:solarized_use16 = 1
+
+" --- Color Engine Initialization ---
+if exists('g:solarized_use16') && g:solarized_use16 == 1
+  " Method 2: Use Terminal's Native 16-Color Palette
+  set notermguicolors
+  let g:solarized_termcolors = 16
+else
+  " Method 1: True 24-Bit Color (TrueColor)
+  if has('termguicolors')
+    set termguicolors
+    " Define manual 24-bit terminal overrides for Apple's standard Vim in modern terms/tmux
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
 endif
 
-" The original 2011 altercation/vim-colors-solarized is not compatible with termguicolors.
-" To solve this perfectly on Ghostty, we've bundled the modern "Solarized 8" theme (colors/solarized8.vim)
-" which fully supports true color, and falls back gracefully to the original theme in 256-color mode if needed.
-let g:solarized_termtrans = 1 " This gets rid of the grey background
+syntax on
+set background=dark
+
+" Load the modern TrueColor-compatible Solarized 8 colorscheme
 silent! colorscheme solarized8
 
 if !exists('g:colors_name') || g:colors_name != 'solarized8'
-  " Fallback to classic solarized in 256-color mode if solarized8 is unavailable
-  let g:solarized_termcolors=256
+  " Fallback to classic solarized if solarized8 is unavailable
+  let g:solarized_termcolors = 16
   silent! colorscheme solarized
 endif
 
