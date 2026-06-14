@@ -24,7 +24,7 @@ let g:solarized_termtrans = 1
 let g:solarized_visibility = 'high'
 
 " Uncomment below to force Vim to use Ghostty's custom 16-color palette (Method 2)
-" let g:solarized_use16 = 1
+let g:solarized_use16 = 1
 
 " --- Color Engine Initialization ---
 if exists('g:solarized_use16') && g:solarized_use16 == 1
