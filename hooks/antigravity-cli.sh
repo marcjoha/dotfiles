@@ -1,5 +1,5 @@
 #!/bin/bash
-# hooks/antigravitycli.sh - Configure Antigravity CLI custom statusline and title scripts.
+# hooks/antigravity-cli.sh - Configure Antigravity CLI custom statusline and title scripts.
 
 set -euo pipefail
 
@@ -15,11 +15,11 @@ if [ -d "$AGY_SETTINGS_DIR" ] || mkdir -p "$AGY_SETTINGS_DIR"; then
 {
   "statusLine": {
     "type": "command",
-    "command": "HOME_REPLACE/.antigravitycli/statusline.sh"
+    "command": "HOME_REPLACE/.antigravity-cli/statusline.sh"
   },
   "title": {
     "type": "command",
-    "command": "HOME_REPLACE/.antigravitycli/title.sh"
+    "command": "HOME_REPLACE/.antigravity-cli/title.sh"
   }
 }
 EOF
@@ -42,12 +42,12 @@ except Exception:
 if 'statusLine' not in data or not isinstance(data['statusLine'], dict):
     data['statusLine'] = {}
 data['statusLine']['type'] = 'command'
-data['statusLine']['command'] = os.path.join(home, '.antigravitycli/statusline.sh')
+data['statusLine']['command'] = os.path.join(home, '.antigravity-cli/statusline.sh')
 
 if 'title' not in data or not isinstance(data['title'], dict):
     data['title'] = {}
 data['title']['type'] = 'command'
-data['title']['command'] = os.path.join(home, '.antigravitycli/title.sh')
+data['title']['command'] = os.path.join(home, '.antigravity-cli/title.sh')
 
 with open(path, 'w') as f:
     json.dump(data, f, indent=2)
