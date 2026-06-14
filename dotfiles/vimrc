@@ -1,17 +1,35 @@
 syntax enable
 set background=dark
+
+" Safely load solarized theme (requires ~/.vim/colors/solarized.vim, which is tracked in this repo)
 let g:solarized_termtrans = 1 " This gets rid of the grey background
-colorscheme solarized
+silent! colorscheme solarized
+
+" Tab and indentation settings
 set tabstop=2             " number of visual spaces per TAB
 set softtabstop=2         " number of spaces in tab when editing
 set expandtab             " tabs are spaces
+filetype indent on        " load filetype-specific indent files
+
+" Display settings
 set number                " show line numbers
 set showcmd               " show command in bottom bar
-filetype indent on        " load filetype-specific indent files
 set wildmenu              " visual autocomplete for command menu
 set lazyredraw            " redraw only when we need to.
 set showmatch             " highlight matching [{()}]
+
+" Search settings
 set incsearch             " search as characters are entered
-set nohlsearch            " dont' highlight matches
-set mouse=a               " allows for highlighting text wih mouse
-set clipboard=unnamedplus " copy vims yank-stuff into clipboard
+set nohlsearch            " don't highlight matches
+
+" Interface and editor behavior
+set mouse=a               " allows for highlighting text with mouse
+set clipboard=unnamedplus " copy Vim's yank-stuff into system clipboard
+
+" Fix backspace keys so it behaves intuitively in insert mode
+set backspace=indent,eol,start
+
+" Disable annoying local swap/backup files in project directories
+set nobackup
+set nowritebackup
+set noswapfile

@@ -10,8 +10,9 @@ The root directory contains only the installation tooling and documentation to k
 .
 ├── dotfiles/          # Directory containing active config files (no dot prefixes)
 │   ├── bash_profile   # Shell login profile
-│   ├── bashrc         # Interactive shell settings & paths
 │   ├── tmux.conf      # tmux terminal multiplexer config
+│   ├── vim/           # Vim configuration directory
+│   │   └── colors/solarized.vim
 │   └── vimrc          # Vim text editor preferences
 ├── install.sh         # Safe installation and deployment script
 ├── .gitignore         # File patterns to exclude from Git
@@ -25,9 +26,9 @@ The root directory contains only the installation tooling and documentation to k
 | File in Repo | Target Destination | Purpose |
 | :--- | :--- | :--- |
 | `dotfiles/bash_profile` | `~/.bash_profile` | Configures Homebrew, Google Cloud SDK, customized paths, and loads `.bashrc`. |
-| `dotfiles/bashrc` | `~/.bashrc` | Sets up non-login interactive shell configurations. |
 | `dotfiles/tmux.conf` | `~/.tmux.conf` | Basic multiplexer behaviors like mouse mode. |
-| `dotfiles/vimrc` | `~/.vimrc` | Standard Vim preferences (dark Solarized style, 2-space tabs, numbering). |
+| `dotfiles/vim/` | `~/.vim/` | Vim configuration directory containing the Solarized theme. |
+| `dotfiles/vimrc` | `~/.vimrc` | Standard Vim preferences (dark Solarized style, 2-space tabs, numbering, backup disabling, and backspace fixes). |
 
 ---
 
