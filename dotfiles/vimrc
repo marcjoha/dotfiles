@@ -1,14 +1,22 @@
 syntax enable
 set background=dark
 
-" The original 2011 altercation/vim-colors-solarized colorscheme is not compatible
-" with 'termguicolors' (it causes text to render in ugly neon/shocking pink and magenta).
-" Instead, we force 256-color mode which renders the original palette perfectly in terminals.
-let g:solarized_termcolors=256
+" Enable 24-bit TrueColor support for modern terminals (like Ghostty)
+if has('termguicolors')
+  set termguicolors
+endif
 
-" Load solarized theme (requires ~/.vim/colors/solarized.vim, which is tracked in this repo)
+" The original 2011 altercation/vim-colors-solarized is not compatible with termguicolors.
+" To solve this perfectly on Ghostty, we've bundled the modern "Solarized 8" theme (colors/solarized8.vim)
+" which fully supports true color, and falls back gracefully to the original theme in 256-color mode if needed.
 let g:solarized_termtrans = 1 " This gets rid of the grey background
-colorscheme solarized
+silent! colorscheme solarized8
+
+if !exists('g:colors_name') || g:colors_name != 'solarized8'
+  " Fallback to classic solarized in 256-color mode if solarized8 is unavailable
+  let g:solarized_termcolors=256
+  silent! colorscheme solarized
+endif
 
 " Tab and indentation settings
 set tabstop=2             " number of visual spaces per TAB
