@@ -8,14 +8,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DOTFILES_DIR="${SCRIPT_DIR}/dotfiles"
 BACKUP_DIR="${HOME}/.dotfiles_backup/$(date +%Y%m%d_%H%M%S)"
 
-# The list of configuration files inside the dotfiles/ subfolder
-FILES=(
-  "bash_profile"
-  "bashrc"
-  "tmux.conf"
-  "vimrc"
-)
-
 echo "=== Initializing Dotfiles Installation ==="
 
 create_symlink() {
@@ -41,8 +33,21 @@ create_symlink() {
   echo "🔗 Created symlink: $dest -> $src"
 }
 
-for file in "${FILES[@]}"; do
-  create_symlink "${DOTFILES_DIR}/${file}" "${HOME}/.${file}"
+# Enable nullglob to handle empty folders or non-matching globs safely
+shopt -s nullglob
+
+# Dynamically discover all files and directories in the dotfiles/ subfolder
+for src in "${DOTFILES_DIR}"/*; do
+  # Skip if the item doesn't exist
+  [ -e "$src" ] || continue
+
+  # Get the basename (e.g. "bash_profile" or "vim")
+  file="$(basename "$src")"
+
+  # Prepend dot to construct the target destination in home directory (e.g. "~/.bash_profile")
+  dest="${HOME}/.${file}"
+
+  create_symlink "$src" "$dest"
 done
 
 echo "=== Dotfiles Installation Complete! ==="
