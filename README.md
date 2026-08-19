@@ -11,12 +11,11 @@ The repository isolates clean configurations from installation tooling and hooks
 ```text
 .
 ├── dotfiles/          # System-relative dotfiles (unprefixed)
-│   ├── antigravity-cli/# Custom scripts for Antigravity statusbar/title
 │   ├── bash_profile   # Shell login profile
 │   ├── config/        # Application configurations (e.g. ghostty)
 │   ├── tmux.conf      # tmux terminal multiplexer config
 │   └── vimrc          # Vim text editor preferences (with .vim directory)
-├── hooks/             # Post-install hook scripts (e.g. antigravity-cli.sh)
+├── hooks/             # Post-install hook scripts
 ├── install.sh         # Dynamic, backup-safe symlinking script
 └── README.md          # Documentation
 ```

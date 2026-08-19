@@ -14,7 +14,6 @@ fi
 
 # 3. Path configurations
 export PATH="${HOME}/bin:${PATH}"
-export PATH="${HOME}/.antigravity/antigravity/bin:${PATH}"
 
 # 4. Git Prompt (requires bash-git-prompt installed via Homebrew, with premium Solarized fallback)
 if which brew &>/dev/null && [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
@@ -27,11 +26,11 @@ else
 fi
 
 # 5. Google Cloud SDK configurations
-if [ -f "${HOME}/bin/google-cloud-sdk/path.bash.inc" ]; then 
-  source "${HOME}/bin/google-cloud-sdk/path.bash.inc"
+if [ -f "$HOME/bin/google-cloud-sdk/path.bash.inc" ]; then 
+  source "$HOME/bin/google-cloud-sdk/path.bash.inc"
 fi
-if [ -f "${HOME}/bin/google-cloud-sdk/completion.bash.inc" ]; then 
-  source "${HOME}/bin/google-cloud-sdk/completion.bash.inc"
+if [ -f "$HOME/bin/google-cloud-sdk/completion.bash.inc" ]; then 
+  source "$HOME/bin/google-cloud-sdk/completion.bash.inc"
 fi
 
 # 6. Aliases & General Settings
