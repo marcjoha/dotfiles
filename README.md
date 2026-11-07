@@ -1,41 +1,27 @@
 # dotfiles
 
-A clean, modular, and safe dotfiles repository. It manages system configurations from a single location using dynamic symlinking and post-install hooks.
+Minimal personal configuration files for Ghostty and Vim.
 
----
-
-## Architecture
-
-The repository isolates clean configurations from installation tooling and hooks:
+## Structure
 
 ```text
 .
-├── dotfiles/          # System-relative dotfiles (unprefixed)
-│   ├── bash_profile   # Shell login profile
-│   ├── config/        # Application configurations (e.g. ghostty)
-│   ├── tmux.conf      # tmux terminal multiplexer config
-│   └── vimrc          # Vim text editor preferences (with .vim directory)
-├── hooks/             # Post-install hook scripts
-├── install.sh         # Dynamic, backup-safe symlinking script
-└── README.md          # Documentation
+├── ghostty/
+│   └── config     # Ghostty terminal emulator config
+├── vimrc          # Vim editor config (Gruvbox Material)
+├── install.sh     # Symlink setup script
+└── README.md
 ```
 
----
+## Setup
 
-## Design Principles
-
-* **Zero-Dot Repository Layout**: Files inside the `dotfiles/` directory do not have leading dots. They are mapped dynamically to hidden files (e.g., `dotfiles/vimrc` becomes `~/.vimrc`) on installation.
-* **Extensible Hooks**: Application-specific configurations (like merging preferences or generating files) are decoupled into the `hooks/` folder to keep the core installer completely generic.
-* **Backup First**: Any pre-existing file or directory in `~` is automatically archived to `~/.dotfiles_backup/<timestamp>/` before creating links.
-
----
-
-## Installation
-
-To deploy the configurations:
+Run the installation script:
 
 ```bash
 ./install.sh
 ```
 
-This will dynamically link all active profiles, initialize directories, and sequentially execute all scripts found in the `hooks/` folder.
+This will:
+1. Symlink `vimrc` to `~/.vimrc`.
+2. Symlink `ghostty/config` to `~/.config/ghostty/config`.
+3. Clone the `gruvbox-material` Vim theme into `~/.vim/pack/themes/start/gruvbox-material` if it is not already present.
